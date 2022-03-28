@@ -1,0 +1,15 @@
+<%- include('partials/head.ejs') %> 
+
+    <%- include('partials/navbar.ejs') %> 
+    
+    <h1>Topics</h1>
+    <ul>
+        <% for(let t of topics) {%>
+            <li><%= t.id %>. <%= t.name %> </li>
+            <form method="GET" action="/<%= t.name %>">
+                <input type="submit"/>
+            </form>
+        <% } %>  
+    </ul>
+
+<%- include('partials/footer.ejs') %>  
