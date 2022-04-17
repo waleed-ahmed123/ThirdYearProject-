@@ -1,15 +1,19 @@
 const express = require("express");
 const app = express();
 const path = require('path');
-const ejsMate = require('ejs-mate')
+const ejsMate = require('ejs-mate');
+const { dirname } = require("path");
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+//app.use('/js', express.static(__dirname + 'public/javascript/answers'))
 
 app.set('view engine', 'ejs');
 app.engine('ejs', ejsMate)
 app.set('views', path.join(__dirname, '/views'));
+
+var myScripts = require('./public/javascript/answers');
 
 /* app.use((req, res) => {
     console.log("We got a new request")
@@ -61,6 +65,7 @@ const additionQuestions = [
 const additionAnswers = [
     {
         id: 1,
+        correctAnswer: 2,
         answers: [
             {
                 id: 1,
@@ -82,6 +87,7 @@ const additionAnswers = [
     },
     {
         id: 2,
+        correctAnswer: 9,
         answers: [
             {
                 id: 1,
@@ -103,43 +109,45 @@ const additionAnswers = [
     },
     {
         id: 3,
+        correctAnswer: 21,
         answers: [
             {
                 id: 1,
-                answer: 10
+                answer: 20
             },
             {
                 id: 2,
-                answer: 11
+                answer: 21
             },
             {
                 id: 3,
-                answer: 12
+                answer: 22
             },
             {
                 id: 4,
-                answer: 13
+                answer: 23
             },
         ]
     },
     {
         id: 4,
+        correctAnswer: 30,
         answers: [
             {
                 id: 1,
-                answer: 14
+                answer: 28
             },
             {
                 id: 2,
-                answer: 15
+                answer: 29
             },
             {
                 id: 3,
-                answer: 16
+                answer: 40
             },
             {
                 id: 4,
-                answer: 17
+                answer: 30
             },
         ]
     },
@@ -149,7 +157,7 @@ app.get('/allTopics', (req, res) => {
     res.render('topics/index', { topics, additionQuestions })
 })
 app.get('/addition', (req, res) => {
-    res.render('topics/addition', { additionQuestions, additionAnswers })
+    res.render('topics/addition', { additionQuestions, additionAnswers, utils: myScripts })
 })
 
 app.get('/', (req, res) => {
@@ -166,7 +174,7 @@ app.get('/about', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.send("I don't know this request")
+    res.send("I dont know this request")
 })
 
 app.listen(3333, () => {
