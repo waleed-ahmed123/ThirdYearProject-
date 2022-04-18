@@ -22,7 +22,7 @@
     </div>
     <% for(j=0; j<additionAnswers.length; j++) {%>
     <div class="card-body">
-      <button class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer) "> <%= additionAnswers[j].id %>. <%= additionAnswers[i].answers[j,j].answer %> </button>
+      <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= additionAnswers[j].id %>. <%= additionAnswers[i].answers[j,j].answer %> </button>
     </div>
     <% } %>
   </div>
@@ -48,13 +48,17 @@
     // 👉️ can't use alert()
   }
 
-  const btn = document.getElementById('#answerButton');
-
-  const checkAnswer = function(usersAnswer, correctAnswer) {
+  const checkAnswer = function(usersAnswer, correctAnswer, id) {
     if (usersAnswer == (correctAnswer)) {
       console.log('correct answer')
+      console.log(id)
+      let answerButton = document.querySelector('#answer' + id)
+      answerButton.style.backgroundColor = '#4cae4c'
     } else if (usersAnswer != (correctAnswer)) {
       console.log('wrong answer')
+      console.log(id)
+      let answerButton = document.querySelector('#answer' + id)
+      answerButton.style.backgroundColor = '#c9302c'
     }
   }
 </script>
