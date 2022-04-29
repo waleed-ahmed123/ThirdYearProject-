@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<%- include('../partials/head.ejs') %>
 
-  <title>Addition</title>
-</head>
+<%- include('../partials/navbar.ejs') %>
 
 <body>
   <h1>Addition</h1>
 
   <% for(i=0; i<additionQuestions.length; i++) {%>
 
-  <div class="card mb-3" style="width: 18rem;">
+  <div class="card col-6 offset-3 mb-3 col-lg-4 col-xl-6 border-5">
     <div class="card-header">
       <%= additionQuestions[i].id %>. <%= additionQuestions[i].question %>
     </div>
     <% for(j=0; j<additionAnswers.length; j++) {%>
-    <div class="card-body">
+    <div class="card-body md-4">
       <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= additionAnswers[j].id %>. <%= additionAnswers[i].answers[j,j].answer %> </button>
     </div>
     <% } %>
@@ -29,7 +23,7 @@
   <% } %>
 
   <div class="card-footer">
-    <a href="/topics">Back To All Topics </a>
+    <%- include('../partials/footer.ejs') %>
   </div>
 
   </div>

@@ -1,0 +1,59 @@
+<body>
+  <h1>Addition</h1>
+  <div class="card" style="width: 18rem;">
+
+    <div class="card-header">
+      <% for(i=0; i<additionQuestions.length; i++) {%>
+      <%= additionQuestions[i].id %>. <%= additionQuestions[i].question %>
+    </div>
+
+    <div class="card-body">
+      <% for(j=0; j<additionAnswers.length; j++) {%>
+      <button type="button" class="btn btn-primary"><%= additionAnswers[j].id %>. <%= additionAnswers[i].answers[j,j].answer %></button>
+
+      <br>
+      <% } %>
+      <br>
+      <% } %>
+    </div>
+
+    <div class="card-footer">
+      <a href="/topics">Back To All Topics </a>
+    </div>
+
+  </div>
+  <!-- <script src="../../public/javascript/answers.js"></script> -->
+</body>
+
+
+
+
+
+
+
+
+
+
+  <!--   <div class="card mb-3" style="width: 18rem;">
+    <div class="card-header">
+      2. Question
+    </div>
+    <div class="card-body">
+      <button class="btn btn-primary"> 1. Answer 1 </button> <br>
+      <button class="btn btn-primary"> 2. Answer 2 </button> <br>
+      <button class="btn btn-primary"> 3. Answer 3 </button> <br>
+      <button class="btn btn-primary"> 4. Answer 4 </button> <br>
+    </div>
+  </div>
+
+  <div class="card mb-3" style="width: 18rem;">
+    <div class="card-header">
+      3. Question
+    </div>
+    <div class="card-body">
+      <button class="btn btn-primary"> 1. Answer 1 </button> <br>
+      <button class="btn btn-primary"> 2. Answer 2 </button> <br>
+      <button class="btn btn-primary"> 3. Answer 3 </button> <br>
+      <button class="btn btn-primary"> 4. Answer 4 </button> <br>
+    </div>
+  </div> -->
