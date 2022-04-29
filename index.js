@@ -3,6 +3,21 @@ const app = express();
 const path = require('path');
 const ejsMate = require('ejs-mate');
 const { dirname } = require("path");
+const mongoose = require('mongoose');
+const AdditionQuestions = require('./models/questions')
+const AdditionAnswers = require('./models/answers')
+
+mongoose.connect('mongodb://localhost:27017/maths-quiz', {
+    useNewUrlParser: true,
+    //useCreateIndex: true,
+    useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+    console.log("Database connected");
+});
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -14,6 +29,7 @@ app.engine('ejs', ejsMate)
 app.set('views', path.join(__dirname, '/views'));
 
 var myScripts = require('./public/javascript/answers');
+const { additionQuestions } = require("./seeds/additionQuestion");
 
 /* app.use((req, res) => {
     console.log("We got a new request")
@@ -43,7 +59,7 @@ const topics = [
         name: 'Division'
     }
 ]
-const additionQuestions = [
+/* const additionQuestions = [
     {
         id: 1,
         question: 'What is 1 + 1?'
@@ -60,7 +76,7 @@ const additionQuestions = [
         id: 4,
         question: 'What is 13 + 17?'
     }
-]
+] */
 
 const additionAnswers = [
     {
@@ -156,7 +172,11 @@ const additionAnswers = [
 app.get('/allTopics', (req, res) => {
     res.render('topics/index', { topics, additionQuestions })
 })
-app.get('/addition', (req, res) => {
+app.get('/addition', async (req, res) => {
+    const additionQuestions = await AdditionQuestions.find()
+    //const additionAnswers = await AdditionAnswers.find()
+    console.log(additionQuestions)
+    console.log(additionAnswers)
     res.render('topics/addition', { additionQuestions, additionAnswers, utils: myScripts })
 })
 
