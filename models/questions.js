@@ -6,4 +6,10 @@ const additionQuestionSchema = new Schema({
     question: String
 })
 
-module.exports = mongoose.model('AdditionQuestions', additionQuestionSchema);
+const subtractionQuestionSchema = new Schema({
+    id: Number,
+    question: String
+})
+
+module.exports.AdditionQuestions = mongoose.model('AdditionQuestions', additionQuestionSchema);
+module.exports.SubtractionQuestions = mongoose.model('SubtractionQuestions', subtractionQuestionSchema);

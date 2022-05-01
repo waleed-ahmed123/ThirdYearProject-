@@ -1,0 +1,60 @@
+<%- include('../partials/head.ejs') %>
+
+<%- include('../partials/navbar.ejs') %>
+
+<body>
+  <h1>Subtraction</h1>
+
+  <% for(i=0; i<subtractionQuestions.length; i++) {%>
+
+  <div class="card col-6 offset-3 mb-3 col-lg-4 col-xl-6 border-5">
+    <div class="card-header">
+      <%= subtractionQuestions[i].id %>. <%= subtractionQuestions[i].question %>
+    </div>
+    <% for(j=0; j<subtractionAnswers.length; j++) {%>
+    <div class="card-body md-4">
+      <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= subtractionAnswers[j].id %>. <%= subtractionAnswers[i].answers[j,j].answer %> </button>
+    </div>
+    <% } %>
+  </div>
+  <% } %>
+
+  <div class="card-footer">
+    <%- include('../partials/footer.ejs') %>
+  </div>
+
+  </div>
+  <!-- <script src="../../public/javascript/answers.js"></script> -->
+</body>
+
+
+</html>
+
+<script>
+  if (typeof window !== 'undefined') {
+    console.log('You are on the browser')
+    // 👉️ can use alert()
+  } else {
+    console.log('You are on the server')
+    // 👉️ can't use alert()
+  }
+
+  const checkAnswer = function(usersAnswer, correctAnswer, id) {
+    if (usersAnswer == (correctAnswer)) {
+      console.log('correct answer')
+      console.log(id)
+      let answerButton = document.querySelector('#answer' + id)
+      answerButton.style.backgroundColor = '#4cae4c'
+    } else if (usersAnswer != (correctAnswer)) {
+      console.log('wrong answer')
+      console.log(id)
+      let answerButton = document.querySelector('#answer' + id)
+      answerButton.style.backgroundColor = '#c9302c'
+    }
+  }
+</script>
+
+<script>
+  const answer = <%-JSON.stringify(subtractionAnswers)%>;
+  console.log(answer)
+</script>
