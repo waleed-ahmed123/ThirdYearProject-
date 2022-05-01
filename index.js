@@ -78,7 +78,7 @@ const topics = [
     }
 ] */
 
-const additionAnswers = [
+/* const additionAnswers = [
     {
         id: 1,
         correctAnswer: 2,
@@ -167,14 +167,14 @@ const additionAnswers = [
             },
         ]
     },
-]
+] */
 
 app.get('/allTopics', (req, res) => {
     res.render('topics/index', { topics, additionQuestions })
 })
 app.get('/addition', async (req, res) => {
     const additionQuestions = await AdditionQuestions.find()
-    //const additionAnswers = await AdditionAnswers.find()
+    const additionAnswers = await AdditionAnswers.find()
     console.log(additionQuestions)
     console.log(additionAnswers)
     res.render('topics/addition', { additionQuestions, additionAnswers, utils: myScripts })
