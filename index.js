@@ -4,8 +4,8 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const { dirname } = require("path");
 const mongoose = require('mongoose');
-const AdditionQuestions = require('./models/questions')
-const AdditionAnswers = require('./models/answers')
+const { AdditionQuestions, SubtractionQuestions } = require('./models/questions')
+const { AdditionAnswers, SubtractionAnswers } = require('./models/answers')
 
 mongoose.connect('mongodb://localhost:27017/maths-quiz', {
     useNewUrlParser: true,
@@ -29,7 +29,8 @@ app.engine('ejs', ejsMate)
 app.set('views', path.join(__dirname, '/views'));
 
 var myScripts = require('./public/javascript/answers');
-const { additionQuestions } = require("./seeds/additionQuestion");
+const { additionQuestions } = require("./seeds/additionQuestionAnswers");
+const { subtractionQuestions } = require("./seeds/subtractionQuestionAnswers");
 
 /* app.use((req, res) => {
     console.log("We got a new request")
@@ -175,9 +176,15 @@ app.get('/allTopics', (req, res) => {
 app.get('/addition', async (req, res) => {
     const additionQuestions = await AdditionQuestions.find()
     const additionAnswers = await AdditionAnswers.find()
-    console.log(additionQuestions)
-    console.log(additionAnswers)
     res.render('topics/addition', { additionQuestions, additionAnswers, utils: myScripts })
+})
+
+app.get('/subtraction', async (req, res) => {
+    const subtractionQuestions = await SubtractionQuestions.find()
+    const subtractionAnswers = await SubtractionAnswers.find()
+    console.log(subtractionQuestions)
+    console.log(subtractionAnswers)
+    res.render('topics/subtraction', { subtractionQuestions, subtractionAnswers, utils: myScripts })
 })
 
 app.get('/', (req, res) => {
