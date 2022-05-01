@@ -34,20 +34,114 @@ const seedDB = async () => {
         })
         await q.save();
     }
-    for (let i = 0; i < additionAnswers.length; i++) {
-        for (j = 0; j < additionAnswers[i].answers.length; j++) {
-            const a = new Answers({
-                id: `${additionAnswers[i].id}`,
-                correctAnswer: `${additionAnswers[i].correctAnswer}`,
-                answers: {
-                    id: `${additionAnswers[i].answers[j, j].id}`,
-                    answer: `${additionAnswers[i].answers[j, j].answer}`
-                }
-            })
+    /*     for (let i = 0; i < additionAnswers.length; i++) {
+            for (j = 0; j < additionAnswers[i].answers.length; j++) {
+                const a = new Answers({
+                    id: `${additionAnswers[i].id}`,
+                    correctAnswer: `${additionAnswers[i].correctAnswer}`,
+                    answers: {
+                        id: `${additionAnswers[i].answers[j, j].id}`,
+                        answer: `${additionAnswers[i].answers[j, j].answer}`
+                    }
+                })
+                await a.save();
+            }
+        } */
 
-            await a.save();
+    const a = Answers.insertMany([
+        {
+            id: 1,
+            correctAnswer: 2,
+            answers: [
+                {
+                    id: 1,
+                    answer: 2
+                },
+                {
+                    id: 2,
+                    answer: 3
+                },
+                {
+                    id: 3,
+                    answer: 4
+                },
+                {
+                    id: 4,
+                    answer: 5
+                },
+            ]
+        },
+        {
+            id: 2,
+            correctAnswer: 9,
+            answers: [
+                {
+                    id: 1,
+                    answer: 6
+                },
+                {
+                    id: 2,
+                    answer: 7
+                },
+                {
+                    id: 3,
+                    answer: 8
+                },
+                {
+                    id: 4,
+                    answer: 9
+                },
+            ]
+        },
+        {
+            id: 3,
+            correctAnswer: 21,
+            answers: [
+                {
+                    id: 1,
+                    answer: 20
+                },
+                {
+                    id: 2,
+                    answer: 21
+                },
+                {
+                    id: 3,
+                    answer: 22
+                },
+                {
+                    id: 4,
+                    answer: 23
+                },
+            ]
+        },
+        {
+            id: 4,
+            correctAnswer: 30,
+            answers: [
+                {
+                    id: 1,
+                    answer: 28
+                },
+                {
+                    id: 2,
+                    answer: 29
+                },
+                {
+                    id: 3,
+                    answer: 40
+                },
+                {
+                    id: 4,
+                    answer: 30
+                },
+            ]
         }
-    }
+    ])
+        .then(data => {
+            console.log(data)
+        })
+
 }
 
 seedDB();
