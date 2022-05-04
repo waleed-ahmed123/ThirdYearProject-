@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const { AdditionQuestions, SubtractionQuestions } = require('../models/questions')
-const { AdditionAnswers, SubtractionAnswers } = require('../models/answers')
-const subQuestions = require('../models/questions')
-const subAnswers = require('../models/answers')
+const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('../models/questions')
+const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('../models/answers')
 const { additionQuestions, additionAnswers } = require('./additionQuestionAnswers')
 const { subtractionQuestions, subtractionAnswers } = require('./subtractionQuestionAnswers')
+const { multiplicationQuestions, multiplicationAnswers } = require('./multiplicationQuestionAnswers')
+const { divisionQuestions, divisionAnswers } = require('./divisionQuestionAnswers')
+
 
 mongoose.connect('mongodb://localhost:27017/maths-quiz', {
     useNewUrlParser: true,
@@ -21,11 +22,11 @@ db.once("open", () => {
 const seedDB = async () => {
     await AdditionQuestions.deleteMany({});
     await SubtractionQuestions.deleteMany({});
-    //await addAnswers.deleteMany({});
+    await MultiplicationQuestions.deleteMany({});
+    await DivisionQuestions.deleteMany({});
+
     await AdditionAnswers.deleteMany({});
     await SubtractionAnswers.deleteMany({});
-    /* const q = new Questions({ id: 1, question: 'what is 1+1?' })
-    await q.save(); */
 
     for (let i = 0; i < additionQuestions.length; i++) {
         const q = new AdditionQuestions({
@@ -39,6 +40,22 @@ const seedDB = async () => {
         const q = new SubtractionQuestions({
             id: `${subtractionQuestions[i].id}`,
             question: `${subtractionQuestions[i].question}`
+        })
+        await q.save();
+    }
+
+    for (let i = 0; i < multiplicationQuestions.length; i++) {
+        const q = new MultiplicationQuestions({
+            id: `${multiplicationQuestions[i].id}`,
+            question: `${multiplicationQuestions[i].question}`
+        })
+        await q.save();
+    }
+
+    for (let i = 0; i < divisionQuestions.length; i++) {
+        const q = new DivisionQuestions({
+            id: `${divisionQuestions[i].id}`,
+            question: `${divisionQuestions[i].question}`
         })
         await q.save();
     }
@@ -247,6 +264,196 @@ const seedDB = async () => {
             console.log(data)
         })
 
+
+
+    const m = MultiplicationAnswers.insertMany([
+        {
+            id: 1,
+            correctAnswer: 4,
+            answers: [
+                {
+                    id: 1,
+                    answer: 2
+                },
+                {
+                    id: 2,
+                    answer: 3
+                },
+                {
+                    id: 3,
+                    answer: 4
+                },
+                {
+                    id: 4,
+                    answer: 5
+                },
+            ]
+        },
+        {
+            id: 2,
+            correctAnswer: 20,
+            answers: [
+                {
+                    id: 1,
+                    answer: 15
+                },
+                {
+                    id: 2,
+                    answer: 16
+                },
+                {
+                    id: 3,
+                    answer: 25
+                },
+                {
+                    id: 4,
+                    answer: 20
+                },
+            ]
+        },
+        {
+            id: 3,
+            correctAnswer: 24,
+            answers: [
+                {
+                    id: 1,
+                    answer: 18
+                },
+                {
+                    id: 2,
+                    answer: 30
+                },
+                {
+                    id: 3,
+                    answer: 24
+                },
+                {
+                    id: 4,
+                    answer: 22
+                },
+            ]
+        },
+        {
+            id: 4,
+            correctAnswer: 21,
+            answers: [
+                {
+                    id: 1,
+                    answer: 20
+                },
+                {
+                    id: 2,
+                    answer: 29
+                },
+                {
+                    id: 3,
+                    answer: 21
+                },
+                {
+                    id: 4,
+                    answer: 28
+                },
+            ]
+        },
+    ])
+        .then(data => {
+            console.log(data)
+        })
+
+
+    const d = DivisionAnswers.insertMany([
+        {
+            id: 1,
+            correctAnswer: 1,
+            answers: [
+                {
+                    id: 1,
+                    answer: 2
+                },
+                {
+                    id: 2,
+                    answer: 0
+                },
+                {
+                    id: 3,
+                    answer: 1
+                },
+                {
+                    id: 4,
+                    answer: 0
+                },
+            ]
+        },
+        {
+            id: 2,
+            correctAnswer: 2,
+            answers: [
+                {
+                    id: 1,
+                    answer: 2
+                },
+                {
+                    id: 2,
+                    answer: 4
+                },
+                {
+                    id: 3,
+                    answer: 1
+                },
+                {
+                    id: 4,
+                    answer: 3
+                },
+            ]
+        },
+        {
+            id: 3,
+            correctAnswer: 4,
+            answers: [
+                {
+                    id: 1,
+                    answer: 5
+                },
+                {
+                    id: 2,
+                    answer: 3
+                },
+                {
+                    id: 3,
+                    answer: 4
+                },
+                {
+                    id: 4,
+                    answer: 6
+                },
+            ]
+        },
+        {
+            id: 4,
+            correctAnswer: 5,
+            answers: [
+                {
+                    id: 1,
+                    answer: 4
+                },
+                {
+                    id: 2,
+                    answer: 6
+                },
+                {
+                    id: 3,
+                    answer: 2
+                },
+                {
+                    id: 4,
+                    answer: 5
+                },
+            ]
+        },
+    ])
+        .then(data => {
+            console.log(data)
+        })
 
 
 }

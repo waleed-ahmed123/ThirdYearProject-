@@ -4,8 +4,8 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const { dirname } = require("path");
 const mongoose = require('mongoose');
-const { AdditionQuestions, SubtractionQuestions } = require('./models/questions')
-const { AdditionAnswers, SubtractionAnswers } = require('./models/answers')
+const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('./models/questions')
+const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('./models/answers')
 
 mongoose.connect('mongodb://localhost:27017/maths-quiz', {
     useNewUrlParser: true,
@@ -29,18 +29,6 @@ app.engine('ejs', ejsMate)
 app.set('views', path.join(__dirname, '/views'));
 
 var myScripts = require('./public/javascript/answers');
-const { additionQuestions } = require("./seeds/additionQuestionAnswers");
-const { subtractionQuestions } = require("./seeds/subtractionQuestionAnswers");
-
-/* app.use((req, res) => {
-    console.log("We got a new request")
-    res.send("<h1>Hello, we got your request</h1>")
-}) */
-
-/* app.get('/r/:subreddit', (req, res) => {
-    const {subreddit} = req.params;
-    res.send(`<h1>Browsing the ${subreddit} subreddit</h1>`)
-}) */
 
 const topics = [
     {
@@ -171,7 +159,7 @@ const topics = [
 ] */
 
 app.get('/allTopics', (req, res) => {
-    res.render('topics/index', { topics, additionQuestions })
+    res.render('topics/index', { topics })
 })
 app.get('/addition', async (req, res) => {
     const additionQuestions = await AdditionQuestions.find()
@@ -187,11 +175,27 @@ app.get('/subtraction', async (req, res) => {
     res.render('topics/subtraction', { subtractionQuestions, subtractionAnswers, utils: myScripts })
 })
 
+app.get('/multiplication', async (req, res) => {
+    const multiplicationQuestions = await MultiplicationQuestions.find()
+    const multiplicationAnswers = await MultiplicationAnswers.find()
+    console.log(multiplicationQuestions)
+    console.log(multiplicationAnswers)
+    res.render('topics/multiplication', { multiplicationQuestions, multiplicationAnswers, utils: myScripts })
+})
+
+app.get('/division', async (req, res) => {
+    const divisionQuestions = await DivisionQuestions.find()
+    const divisionAnswers = await DivisionAnswers.find()
+    console.log(divisionQuestions)
+    console.log(divisionAnswers)
+    res.render('topics/division', { divisionQuestions, divisionAnswers, utils: myScripts })
+})
+
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 app.get('/topics', (req, res) => {
-    res.render('topics.ejs', { topics, additionQuestions })
+    res.render('topics.ejs', { topics })
 })
 app.get('/contacts', (req, res) => {
     res.render('contact.ejs')
