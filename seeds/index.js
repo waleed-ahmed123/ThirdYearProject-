@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('../models/questions')
 const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('../models/answers')
+const { Topics } = require('../models/topics')
 const { additionQuestions, additionAnswers } = require('./additionQuestionAnswers')
 const { subtractionQuestions, subtractionAnswers } = require('./subtractionQuestionAnswers')
 const { multiplicationQuestions, multiplicationAnswers } = require('./multiplicationQuestionAnswers')
 const { divisionQuestions, divisionAnswers } = require('./divisionQuestionAnswers')
+const { topics } = require('./topics')
 
 
 mongoose.connect('mongodb://localhost:27017/maths-quiz', {
@@ -24,9 +26,12 @@ const seedDB = async () => {
     await SubtractionQuestions.deleteMany({});
     await MultiplicationQuestions.deleteMany({});
     await DivisionQuestions.deleteMany({});
+    await Topics.deleteMany({});
 
     await AdditionAnswers.deleteMany({});
     await SubtractionAnswers.deleteMany({});
+    await MultiplicationAnswers.deleteMany({});
+    await DivisionAnswers.deleteMany({});
 
     for (let i = 0; i < additionQuestions.length; i++) {
         const q = new AdditionQuestions({
@@ -56,6 +61,14 @@ const seedDB = async () => {
         const q = new DivisionQuestions({
             id: `${divisionQuestions[i].id}`,
             question: `${divisionQuestions[i].question}`
+        })
+        await q.save();
+    }
+
+    for (let i = 0; i < topics.length; i++) {
+        const q = new Topics({
+            id: `${topics[i].id}`,
+            name: `${topics[i].name}`
         })
         await q.save();
     }
@@ -454,8 +467,6 @@ const seedDB = async () => {
         .then(data => {
             console.log(data)
         })
-
-
 }
 
 seedDB();
