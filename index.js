@@ -197,12 +197,12 @@ app.get('/', (req, res) => {
 app.get('/topics', (req, res) => {
     res.render('topics.ejs', { topics })
 })
-app.get('/contacts', (req, res) => {
+app.get('/contact', (req, res) => {
     res.render('contact.ejs')
 })
-app.get('/about', (req, res) => {
-    res.render('about.ejs')
-})
+// app.get('/about', (req, res) => {
+//     res.render('about.ejs')
+// })
 
 app.get('*', (req, res) => {
     res.send("I dont know this request")
