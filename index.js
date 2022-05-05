@@ -6,6 +6,7 @@ const { dirname } = require("path");
 const mongoose = require('mongoose');
 const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('./models/questions')
 const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('./models/answers')
+const { Topics } = require('./models/topics')
 
 mongoose.connect('mongodb://localhost:27017/maths-quiz', {
     useNewUrlParser: true,
@@ -30,7 +31,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 var myScripts = require('./public/javascript/answers');
 
-const topics = [
+/* const topics = [
     {
         id: 1,
         name: 'Addition'
@@ -47,7 +48,7 @@ const topics = [
         id: 4,
         name: 'Division'
     }
-]
+] */
 /* const additionQuestions = [
     {
         id: 1,
@@ -158,7 +159,8 @@ const topics = [
     },
 ] */
 
-app.get('/allTopics', (req, res) => {
+app.get('/allTopics', async (req, res) => {
+    const topics = await Topics.find()
     res.render('topics/index', { topics })
 })
 app.get('/addition', async (req, res) => {
@@ -194,7 +196,8 @@ app.get('/division', async (req, res) => {
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
-app.get('/topics', (req, res) => {
+app.get('/topics', async (req, res) => {
+    const topics = await Topics.find()
     res.render('topics.ejs', { topics })
 })
 app.get('/contact', (req, res) => {
