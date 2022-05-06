@@ -1,7 +1,7 @@
 module.exports.topics = [
     {
         id: 1,
-        name: 'Addition'
+        name: 'Addition',
     },
     {
         id: 2,

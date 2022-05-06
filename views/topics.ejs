@@ -7,11 +7,8 @@
   <% for(let t of topics) {%>
 
   <div class="card-header"><%= t.id %>. <%= t.name %>
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <!--     <img src="<%= t.url %>" class="card-img-top" alt="...">-->
   </div>
-  <!--   <form method="GET" action="/<%= t.name %>">
-    <input type="submit" />
-  </form> -->
   <div class="card-body md-4">
     <a href="/<%= t.name %>" class="btn btn-primary"> Try It </a>
   </div>

@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const express = require("express");
 const app = express();
 const path = require('path');
@@ -161,6 +165,7 @@ var myScripts = require('./public/javascript/answers');
 
 app.get('/allTopics', async (req, res) => {
     const topics = await Topics.find()
+    console.log(topics)
     res.render('topics/index', { topics })
 })
 app.get('/addition', async (req, res) => {
@@ -172,24 +177,18 @@ app.get('/addition', async (req, res) => {
 app.get('/subtraction', async (req, res) => {
     const subtractionQuestions = await SubtractionQuestions.find()
     const subtractionAnswers = await SubtractionAnswers.find()
-    console.log(subtractionQuestions)
-    console.log(subtractionAnswers)
     res.render('topics/subtraction', { subtractionQuestions, subtractionAnswers, utils: myScripts })
 })
 
 app.get('/multiplication', async (req, res) => {
     const multiplicationQuestions = await MultiplicationQuestions.find()
     const multiplicationAnswers = await MultiplicationAnswers.find()
-    console.log(multiplicationQuestions)
-    console.log(multiplicationAnswers)
     res.render('topics/multiplication', { multiplicationQuestions, multiplicationAnswers, utils: myScripts })
 })
 
 app.get('/division', async (req, res) => {
     const divisionQuestions = await DivisionQuestions.find()
     const divisionAnswers = await DivisionAnswers.find()
-    console.log(divisionQuestions)
-    console.log(divisionAnswers)
     res.render('topics/division', { divisionQuestions, divisionAnswers, utils: myScripts })
 })
 
@@ -198,6 +197,7 @@ app.get('/', (req, res) => {
 })
 app.get('/topics', async (req, res) => {
     const topics = await Topics.find()
+    console.log(topics)
     res.render('topics.ejs', { topics })
 })
 app.get('/contact', (req, res) => {
