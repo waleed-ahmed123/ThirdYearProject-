@@ -1,18 +1,29 @@
-<%- include('partials/head.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
 
-<%- include('partials/navbar.ejs') %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topics</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/topics.css">
+</head>
 
-<h1>Topics</h1>
-<div class="card col-6 offset-3 mb-3 col-lg-4 col-xl-6 border-5">
-  <% for(let t of topics) {%>
+<body class="d-flex text-center text-white ">
 
-  <div class="card-header"><%= t.id %>. <%= t.name %>
-    <!--     <img src="<%= t.url %>" class="card-img-top" alt="...">-->
+  <%- include('partials/navbar.ejs') %>
+
+  <h1>Topics</h1>
+  <div class="card col-6 offset-3 mb-3 col-lg-4 col-xl-6 border-5">
+    <% for(let t of topics) {%>
+
+    <div class="card-header text-dark"><%= t.id %>. <%= t.name %>
+      <!--     <img src="<%= t.url %>" class="card-img-top" alt="...">-->
+    </div>
+    <div class="card-body md-4">
+      <a href="/<%= t.name %>" class="btn btn-primary"> Try It </a>
+    </div>
+    <% } %>
   </div>
-  <div class="card-body md-4">
-    <a href="/<%= t.name %>" class="btn btn-primary"> Try It </a>
-  </div>
-  <% } %>
-</div>
 
-<%- include('partials/footer.ejs') %>
+  <%- include('partials/footer.ejs') %>
