@@ -21,7 +21,7 @@
     <div class="card-header text-dark">
       <%= multiplicationQuestions[i].id %>. <%= multiplicationQuestions[i].question %>
     </div>
-    <% for(j=0; j<multiplicationAnswers.length; j++) {%>
+    <% for(j=0; j<multiplicationAnswers[i].answers.length; j++) {%>
     <div class="card-body md-4">
       <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= multiplicationAnswers[j].id %>. <%= multiplicationAnswers[i].answers[j,j].answer %> </button>
     </div>

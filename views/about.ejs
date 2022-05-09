@@ -11,46 +11,56 @@
 
 <body class="d-flex text-center text-white ">
 
-  <%- include('partials/navbar.ejs') %>
-
-  <h1>About</h1>
-
-  <div class="card-group col-12  mb-3 border-5">
-    <div class="card ">
-      <div class="card-body ">
-        <h5>Why I Have Created This Website?</h5>
-        <p class="card-text text-dark">
-          This website was designed and coded by me (Waleed Ahmed) as part of my Third Year Computer Science(BSc) project.
-          I wanted to create a quiz based website to to help primary school pupils to help them with their Maths skills.
-          This website will help them test their knowledge.
-        </p>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-left mb-0">MathsQuiz</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-right">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/topics">Topics</a>
+          <a class="nav-link active" href="/about">About</a>
+        </nav>
       </div>
+    </header>
+
+    <h1>About</h1>
+
+    <div class="card-group col-12  mb-3 border-5">
+      <div class="card ">
+        <div class="card-body ">
+          <h5>Why I Have Created This Website?</h5>
+          <p class="card-text text-dark">
+            This website was designed and coded by me (Waleed Ahmed) as part of my Third Year Computer Science(BSc) project.
+            I wanted to create a quiz based website to to help primary school pupils to help them with their Maths skills.
+            This website will help them test their knowledge.
+          </p>
+        </div>
+      </div>
+
+      <div class="card ">
+        <div class="card-body">
+          <h5>My Journey</h5>
+          <p class="card-text text-dark">
+            Studying Computer Science has made me realise how important this field is to the world.
+            I am fascinated by how even everyday objects such as cameras and phones have developed over the years.
+            My passion for technology started at college. Having not studied Computer Science at GCSE,
+            I had no idea what this subject involved, but I was soon enthralled by all the interesting information
+            I received when I explored this enriching subject. This made me keen to learn more about it.
+          </p>
+        </div>
+      </div>
+
+      <div class="card ">
+        <div class="card-body">
+          <h5>Future Plans</h5>
+          <p class="card-text text-dark">
+            My plans for this project is to continuously improve it. I would love to have feedback from users of
+            this website. If you have any issues or improvements you would like to suggest, don't hesitate to get
+            in touch with me.
+          </p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card ">
-      <div class="card-body">
-        <h5>My Journey</h5>
-        <p class="card-text text-dark">
-          Studying Computer Science has made me realise how important this field is to the world.
-          I am fascinated by how even everyday objects such as cameras and phones have developed over the years.
-          My passion for technology started at college. Having not studied Computer Science at GCSE,
-          I had no idea what this subject involved, but I was soon enthralled by all the interesting information
-          I received when I explored this enriching subject. This made me keen to learn more about it.
-        </p>
-      </div>
-    </div>
-
-    <div class="card ">
-      <div class="card-body">
-        <h5>Future Plans</h5>
-        <p class="card-text text-dark">
-          My plans for this project is to continuously improve it. I would love to have feedback from users of
-          this website. If you have any issues or improvements you would like to suggest, don't hesitate to get
-          in touch with me.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  <%- include('partials/footer.ejs') %>
+    <%- include('partials/footer.ejs') %>

@@ -174,7 +174,95 @@ const seedDB = async () => {
                     answer: 30
                 },
             ]
-        }
+        },
+        {
+            id: 5,
+            correctAnswer: 116,
+            answers: [
+                {
+                    id: 1,
+                    answer: 126
+                },
+                {
+                    id: 2,
+                    answer: 108
+                },
+                {
+                    id: 3,
+                    answer: 116
+                },
+                {
+                    id: 4,
+                    answer: 118
+                },
+            ]
+        },
+        {
+            id: 6,
+            correctAnswer: 8.2,
+            answers: [
+                {
+                    id: 1,
+                    answer: 7.3
+                },
+                {
+                    id: 2,
+                    answer: 8.2
+                },
+                {
+                    id: 3,
+                    answer: 9.2
+                },
+                {
+                    id: 4,
+                    answer: 7.4
+                },
+            ]
+        },
+        {
+            id: 7,
+            correctAnswer: 520,
+            answers: [
+                {
+                    id: 1,
+                    answer: 420
+                },
+                {
+                    id: 2,
+                    answer: 630
+                },
+                {
+                    id: 3,
+                    answer: 510
+                },
+                {
+                    id: 4,
+                    answer: 520
+                },
+            ]
+        },
+        {
+            id: 8,
+            correctAnswer: 780,
+            answers: [
+                {
+                    id: 1,
+                    answer: 880
+                },
+                {
+                    id: 2,
+                    answer: 770
+                },
+                {
+                    id: 3,
+                    answer: 780
+                },
+                {
+                    id: 4,
+                    answer: 870
+                },
+            ]
+        },
     ])
         .then(data => {
             console.log(data)
@@ -269,6 +357,94 @@ const seedDB = async () => {
                 {
                     id: 4,
                     answer: 6.2
+                },
+            ]
+        },
+        {
+            id: 5,
+            correctAnswer: 44,
+            answers: [
+                {
+                    id: 1,
+                    answer: 37
+                },
+                {
+                    id: 2,
+                    answer: 38
+                },
+                {
+                    id: 3,
+                    answer: 44
+                },
+                {
+                    id: 4,
+                    answer: 41
+                },
+            ]
+        },
+        {
+            id: 6,
+            correctAnswer: 260,
+            answers: [
+                {
+                    id: 1,
+                    answer: 360
+                },
+                {
+                    id: 2,
+                    answer: 260
+                },
+                {
+                    id: 3,
+                    answer: 258
+                },
+                {
+                    id: 4,
+                    answer: 269
+                },
+            ]
+        },
+        {
+            id: 7,
+            correctAnswer: 4813,
+            answers: [
+                {
+                    id: 1,
+                    answer: 4756
+                },
+                {
+                    id: 2,
+                    answer: 4912
+                },
+                {
+                    id: 3,
+                    answer: 4813
+                },
+                {
+                    id: 4,
+                    answer: 4613
+                },
+            ]
+        },
+        {
+            id: 8,
+            correctAnswer: 3768,
+            answers: [
+                {
+                    id: 1,
+                    answer: 3657
+                },
+                {
+                    id: 2,
+                    answer: 3867
+                },
+                {
+                    id: 3,
+                    answer: 3723
+                },
+                {
+                    id: 4,
+                    answer: 3768
                 },
             ]
         },
@@ -368,6 +544,94 @@ const seedDB = async () => {
                 },
             ]
         },
+        {
+            id: 5,
+            correctAnswer: 1080,
+            answers: [
+                {
+                    id: 1,
+                    answer: 1080
+                },
+                {
+                    id: 2,
+                    answer: 1180
+                },
+                {
+                    id: 3,
+                    answer: 1160
+                },
+                {
+                    id: 4,
+                    answer: 1190
+                },
+            ]
+        },
+        {
+            id: 6,
+            correctAnswer: 22,
+            answers: [
+                {
+                    id: 1,
+                    answer: 48
+                },
+                {
+                    id: 2,
+                    answer: 22
+                },
+                {
+                    id: 3,
+                    answer: 25
+                },
+                {
+                    id: 4,
+                    answer: 23
+                },
+            ]
+        },
+        {
+            id: 7,
+            correctAnswer: 243.3,
+            answers: [
+                {
+                    id: 1,
+                    answer: 243.3
+                },
+                {
+                    id: 2,
+                    answer: 243
+                },
+                {
+                    id: 3,
+                    answer: 2433
+                },
+                {
+                    id: 4,
+                    answer: 0.2433
+                },
+            ]
+        },
+        {
+            id: 8,
+            correctAnswer: 4,
+            answers: [
+                {
+                    id: 1,
+                    answer: 3
+                },
+                {
+                    id: 2,
+                    answer: 6
+                },
+                {
+                    id: 3,
+                    answer: 5
+                },
+                {
+                    id: 4,
+                    answer: 4
+                },
+            ]
+        },
     ])
         .then(data => {
             console.log(data)
@@ -460,6 +724,94 @@ const seedDB = async () => {
                 {
                     id: 4,
                     answer: 5
+                },
+            ]
+        },
+        {
+            id: 5,
+            correctAnswer: 10,
+            answers: [
+                {
+                    id: 1,
+                    answer: 10
+                },
+                {
+                    id: 2,
+                    answer: 9
+                },
+                {
+                    id: 3,
+                    answer: 8
+                },
+                {
+                    id: 4,
+                    answer: 11
+                },
+            ]
+        },
+        {
+            id: 6,
+            correctAnswer: 7,
+            answers: [
+                {
+                    id: 1,
+                    answer: 6
+                },
+                {
+                    id: 2,
+                    answer: 5
+                },
+                {
+                    id: 3,
+                    answer: 9
+                },
+                {
+                    id: 4,
+                    answer: 7
+                },
+            ]
+        },
+        {
+            id: 7,
+            correctAnswer: 85,
+            answers: [
+                {
+                    id: 1,
+                    answer: 119
+                },
+                {
+                    id: 2,
+                    answer: 85
+                },
+                {
+                    id: 3,
+                    answer: 99
+                },
+                {
+                    id: 4,
+                    answer: 78
+                },
+            ]
+        },
+        {
+            id: 8,
+            correctAnswer: 3,
+            answers: [
+                {
+                    id: 1,
+                    answer: 0.4
+                },
+                {
+                    id: 2,
+                    answer: 5
+                },
+                {
+                    id: 3,
+                    answer: 6
+                },
+                {
+                    id: 4,
+                    answer: 3
                 },
             ]
         },
