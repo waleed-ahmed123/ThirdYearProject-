@@ -14,7 +14,23 @@ module.exports.subtractionQuestions = [
     {
         id: 4,
         question: 'Decrease 10.2 by 3.8'
-    }
+    },
+    {
+        id: 5,
+        question: 'What is the missing Number? 67 - " " = 23'
+    },
+    {
+        id: 6,
+        question: 'What is 1023 - 763?'
+    },
+    {
+        id: 7,
+        question: 'What is 5437 - 373 - 251?'
+    },
+    {
+        id: 8,
+        question: 'What is the missing Number? 6713 - " " = 2945'
+    },
 ]
 
 module.exports.subtractionAnswers = [
@@ -103,6 +119,94 @@ module.exports.subtractionAnswers = [
             {
                 id: 4,
                 answer: 6.2
+            },
+        ]
+    },
+    {
+        id: 5,
+        correctAnswer: 44,
+        answers: [
+            {
+                id: 1,
+                answer: 37
+            },
+            {
+                id: 2,
+                answer: 38
+            },
+            {
+                id: 3,
+                answer: 44
+            },
+            {
+                id: 4,
+                answer: 41
+            },
+        ]
+    },
+    {
+        id: 6,
+        correctAnswer: 260,
+        answers: [
+            {
+                id: 1,
+                answer: 360
+            },
+            {
+                id: 2,
+                answer: 260
+            },
+            {
+                id: 3,
+                answer: 258
+            },
+            {
+                id: 4,
+                answer: 269
+            },
+        ]
+    },
+    {
+        id: 7,
+        correctAnswer: 4813,
+        answers: [
+            {
+                id: 1,
+                answer: 4756
+            },
+            {
+                id: 2,
+                answer: 4912
+            },
+            {
+                id: 3,
+                answer: 4813
+            },
+            {
+                id: 4,
+                answer: 4613
+            },
+        ]
+    },
+    {
+        id: 8,
+        correctAnswer: 3768,
+        answers: [
+            {
+                id: 1,
+                answer: 3657
+            },
+            {
+                id: 2,
+                answer: 3867
+            },
+            {
+                id: 3,
+                answer: 3723
+            },
+            {
+                id: 4,
+                answer: 3768
             },
         ]
     },
