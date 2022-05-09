@@ -20,7 +20,7 @@
     <div class="card-header text-dark">
       <%= subtractionQuestions[i].id %>. <%= subtractionQuestions[i].question %>
     </div>
-    <% for(j=0; j<subtractionAnswers.length; j++) {%>
+    <% for(j=0; j<subtractionAnswers[i].answers.length; j++) {%>
     <div class="card-body md-4">
       <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= subtractionAnswers[j].id %>. <%= subtractionAnswers[i].answers[j,j].answer %> </button>
     </div>
