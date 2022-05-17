@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
 const mongoose = require('mongoose');
 const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('../models/questions')
 const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('../models/answers')
@@ -7,9 +10,9 @@ const { subtractionQuestions, subtractionAnswers } = require('./subtractionQuest
 const { multiplicationQuestions, multiplicationAnswers } = require('./multiplicationQuestionAnswers')
 const { divisionQuestions, divisionAnswers } = require('./divisionQuestionAnswers')
 const { topics } = require('./topics')
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/maths-quiz';
 
-
-mongoose.connect('mongodb://localhost:27017/maths-quiz', {
+mongoose.connect(dbURL, {
     useNewUrlParser: true,
     //useCreateIndex: true,
     useUnifiedTopology: true
@@ -263,6 +266,50 @@ const seedDB = async () => {
                 },
             ]
         },
+        {
+            id: 9,
+            correctAnswer: 594,
+            answers: [
+                {
+                    id: 1,
+                    answer: 587
+                },
+                {
+                    id: 2,
+                    answer: 594
+                },
+                {
+                    id: 3,
+                    answer: 601
+                },
+                {
+                    id: 4,
+                    answer: 599
+                },
+            ]
+        },
+        {
+            id: 10,
+            correctAnswer: 3026,
+            answers: [
+                {
+                    id: 1,
+                    answer: 3026
+                },
+                {
+                    id: 2,
+                    answer: 3016
+                },
+                {
+                    id: 3,
+                    answer: 3036
+                },
+                {
+                    id: 4,
+                    answer: 3333
+                },
+            ]
+        },
     ])
         .then(data => {
             console.log(data)
@@ -445,6 +492,50 @@ const seedDB = async () => {
                 {
                     id: 4,
                     answer: 3768
+                },
+            ]
+        },
+        {
+            id: 9,
+            correctAnswer: 123,
+            answers: [
+                {
+                    id: 1,
+                    answer: 123
+                },
+                {
+                    id: 2,
+                    answer: 77
+                },
+                {
+                    id: 3,
+                    answer: 144
+                },
+                {
+                    id: 4,
+                    answer: 135
+                },
+            ]
+        },
+        {
+            id: 10,
+            correctAnswer: 807,
+            answers: [
+                {
+                    id: 1,
+                    answer: 900
+                },
+                {
+                    id: 2,
+                    answer: 807
+                },
+                {
+                    id: 3,
+                    answer: 777
+                },
+                {
+                    id: 4,
+                    answer: 831
                 },
             ]
         },
@@ -632,6 +723,50 @@ const seedDB = async () => {
                 },
             ]
         },
+        {
+            id: 9,
+            correctAnswer: 144,
+            answers: [
+                {
+                    id: 1,
+                    answer: 144
+                },
+                {
+                    id: 2,
+                    answer: 136
+                },
+                {
+                    id: 3,
+                    answer: 132
+                },
+                {
+                    id: 4,
+                    answer: 156
+                },
+            ]
+        },
+        {
+            id: 10,
+            correctAnswer: 64,
+            answers: [
+                {
+                    id: 1,
+                    answer: 72
+                },
+                {
+                    id: 2,
+                    answer: 64
+                },
+                {
+                    id: 3,
+                    answer: 56
+                },
+                {
+                    id: 4,
+                    answer: 63
+                },
+            ]
+        },
     ])
         .then(data => {
             console.log(data)
@@ -812,6 +947,50 @@ const seedDB = async () => {
                 {
                     id: 4,
                     answer: 3
+                },
+            ]
+        },
+        {
+            id: 9,
+            correctAnswer: 12,
+            answers: [
+                {
+                    id: 1,
+                    answer: 13
+                },
+                {
+                    id: 2,
+                    answer: 12
+                },
+                {
+                    id: 3,
+                    answer: 11
+                },
+                {
+                    id: 4,
+                    answer: 14
+                },
+            ]
+        },
+        {
+            id: 10,
+            correctAnswer: 40,
+            answers: [
+                {
+                    id: 1,
+                    answer: 40
+                },
+                {
+                    id: 2,
+                    answer: 20
+                },
+                {
+                    id: 3,
+                    answer: 35
+                },
+                {
+                    id: 4,
+                    answer: 33
                 },
             ]
         },

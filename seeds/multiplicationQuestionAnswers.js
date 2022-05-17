@@ -30,6 +30,14 @@ module.exports.multiplicationQuestions = [
     {
         id: 8,
         question: 'What is the missing number? 81 x " " = 324'
+    },
+    {
+        id: 9,
+        question: 'What is 12 squared?'
+    },
+    {
+        id: 10,
+        question: 'multiple 8 by 8'
     }
 ]
 
@@ -207,6 +215,50 @@ module.exports.multiplicationAnswers = [
             {
                 id: 4,
                 answer: 4
+            },
+        ]
+    },
+    {
+        id: 9,
+        correctAnswer: 144,
+        answers: [
+            {
+                id: 1,
+                answer: 144
+            },
+            {
+                id: 2,
+                answer: 136
+            },
+            {
+                id: 3,
+                answer: 132
+            },
+            {
+                id: 4,
+                answer: 156
+            },
+        ]
+    },
+    {
+        id: 10,
+        correctAnswer: 64,
+        answers: [
+            {
+                id: 1,
+                answer: 72
+            },
+            {
+                id: 2,
+                answer: 64
+            },
+            {
+                id: 3,
+                answer: 56
+            },
+            {
+                id: 4,
+                answer: 63
             },
         ]
     },

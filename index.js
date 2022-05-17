@@ -8,11 +8,14 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const { dirname } = require("path");
 const mongoose = require('mongoose');
+const mongoSanitize = require('express-mongo-sanitize')
 const { AdditionQuestions, SubtractionQuestions, MultiplicationQuestions, DivisionQuestions } = require('./models/questions')
 const { AdditionAnswers, SubtractionAnswers, MultiplicationAnswers, DivisionAnswers } = require('./models/answers')
 const { Topics } = require('./models/topics')
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/maths-quiz';
+//'mongodb://localhost:27017/maths-quiz'
 
-mongoose.connect('mongodb://localhost:27017/maths-quiz', {
+mongoose.connect(dbURL, {
     useNewUrlParser: true,
     //useCreateIndex: true,
     useUnifiedTopology: true
@@ -27,6 +30,7 @@ db.once("open", () => {
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(mongoSanitize())
 //app.use('/js', express.static(__dirname + 'public/javascript/answers'))
 
 app.set('view engine', 'ejs');
@@ -165,7 +169,6 @@ var myScripts = require('./public/javascript/answers');
 
 app.get('/allTopics', async (req, res) => {
     const topics = await Topics.find()
-    console.log(topics)
     res.render('topics/index', { topics })
 })
 app.get('/addition', async (req, res) => {
@@ -197,7 +200,6 @@ app.get('/', (req, res) => {
 })
 app.get('/topics', async (req, res) => {
     const topics = await Topics.find()
-    console.log(topics)
     res.render('topics.ejs', { topics })
 })
 app.get('/contact', (req, res) => {
@@ -212,6 +214,8 @@ app.get('*', (req, res) => {
     res.send("I dont know this request")
 })
 
-app.listen(3333, () => {
-    console.log("Listening on port 3333");
+
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 })

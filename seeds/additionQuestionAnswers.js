@@ -30,6 +30,14 @@ module.exports.additionQuestions = [
     {
         id: 8,
         question: 'Increase 550 by 230.'
+    },
+    {
+        id: 9,
+        question: 'What is the total when I add 372 and 222?'
+    },
+    {
+        id: 10,
+        question: 'How many altogether is 1024 and 2002?'
     }
 ]
 
@@ -207,6 +215,50 @@ module.exports.additionAnswers = [
             {
                 id: 4,
                 answer: 870
+            },
+        ]
+    },
+    {
+        id: 9,
+        correctAnswer: 594,
+        answers: [
+            {
+                id: 1,
+                answer: 587
+            },
+            {
+                id: 2,
+                answer: 594
+            },
+            {
+                id: 3,
+                answer: 601
+            },
+            {
+                id: 4,
+                answer: 599
+            },
+        ]
+    },
+    {
+        id: 10,
+        correctAnswer: 3026,
+        answers: [
+            {
+                id: 1,
+                answer: 3026
+            },
+            {
+                id: 2,
+                answer: 3016
+            },
+            {
+                id: 3,
+                answer: 3036
+            },
+            {
+                id: 4,
+                answer: 3333
             },
         ]
     },
