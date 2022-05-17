@@ -31,6 +31,14 @@ module.exports.subtractionQuestions = [
         id: 8,
         question: 'What is the missing Number? 6713 - " " = 2945'
     },
+    {
+        id: 9,
+        question: 'Work out 1024 - 577 - 324'
+    },
+    {
+        id: 10,
+        question: 'Decrease 3788 by 2981'
+    },
 ]
 
 module.exports.subtractionAnswers = [
@@ -207,6 +215,50 @@ module.exports.subtractionAnswers = [
             {
                 id: 4,
                 answer: 3768
+            },
+        ]
+    },
+    {
+        id: 9,
+        correctAnswer: 123,
+        answers: [
+            {
+                id: 1,
+                answer: 123
+            },
+            {
+                id: 2,
+                answer: 77
+            },
+            {
+                id: 3,
+                answer: 144
+            },
+            {
+                id: 4,
+                answer: 135
+            },
+        ]
+    },
+    {
+        id: 10,
+        correctAnswer: 807,
+        answers: [
+            {
+                id: 1,
+                answer: 900
+            },
+            {
+                id: 2,
+                answer: 807
+            },
+            {
+                id: 3,
+                answer: 777
+            },
+            {
+                id: 4,
+                answer: 831
             },
         ]
     },

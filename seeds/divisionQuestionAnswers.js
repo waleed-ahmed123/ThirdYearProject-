@@ -30,6 +30,14 @@ module.exports.divisionQuestions = [
     {
         id: 8,
         question: 'What is the remainder when 3810 is divided by 47?'
+    },
+    {
+        id: 9,
+        question: 'A zoo charges £13 per ticket. In one day the zoo took £156 in ticket sales. How many people visited the zoo that day?'
+    },
+    {
+        id: 10,
+        question: 'How many times does 25 go into 1000?'
     }
 ]
 
@@ -207,6 +215,50 @@ module.exports.divisionAnswers = [
             {
                 id: 4,
                 answer: 3
+            },
+        ]
+    },
+    {
+        id: 9,
+        correctAnswer: 12,
+        answers: [
+            {
+                id: 1,
+                answer: 13
+            },
+            {
+                id: 2,
+                answer: 12
+            },
+            {
+                id: 3,
+                answer: 11
+            },
+            {
+                id: 4,
+                answer: 14
+            },
+        ]
+    },
+    {
+        id: 10,
+        correctAnswer: 40,
+        answers: [
+            {
+                id: 1,
+                answer: 40
+            },
+            {
+                id: 2,
+                answer: 20
+            },
+            {
+                id: 3,
+                answer: 35
+            },
+            {
+                id: 4,
+                answer: 33
             },
         ]
     },
