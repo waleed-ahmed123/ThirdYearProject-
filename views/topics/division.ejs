@@ -22,7 +22,7 @@
     </div>
     <% for(j=0; j<divisionAnswers[i].answers.length; j++) {%>
     <div class="card-body md-4">
-      <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= divisionAnswers[j].id %>. <%= divisionAnswers[i].answers[j,j].answer %> </button>
+      <button id="answer<%=i%><%=j%><%=j%>" class="btn btn-primary" onclick="checkAnswer(answer['<%=i%>'].answers['<%=j%>','<%=j%>'].answer, answer['<%=i%>'].correctAnswer, '<%=i%><%=j%><%=j%>')"> <%= divisionAnswers[i].answers[j,j].answer %> </button>
     </div>
     <% } %>
   </div>
@@ -31,23 +31,18 @@
   <%- include('../partials/footer.ejs') %>
 
   <script>
-    if (typeof window !== 'undefined') {
-      console.log('You are on the browser')
-      // 👉️ can use alert()
-    } else {
-      console.log('You are on the server')
-      // 👉️ can't use alert()
-    }
-
+    // Compare the answer of the chosen answer and the correct answer
+    // If its the same, change the colour of the button to green
+    // Else change it to red
     const checkAnswer = function(usersAnswer, correctAnswer, id) {
       if (usersAnswer == (correctAnswer)) {
-        console.log('correct answer')
-        console.log(id)
+        /* console.log('correct answer')
+        console.log(id) */
         let answerButton = document.querySelector('#answer' + id)
         answerButton.style.backgroundColor = '#4cae4c'
       } else if (usersAnswer != (correctAnswer)) {
-        console.log('wrong answer')
-        console.log(id)
+        /* console.log('wrong answer')
+        console.log(id) */
         let answerButton = document.querySelector('#answer' + id)
         answerButton.style.backgroundColor = '#c9302c'
       }
@@ -55,7 +50,6 @@
   </script>
 
   <script>
+    // Convert the answers into a string so they can use them in the checkAnswer() function to compare the answers
     const answer = <%-JSON.stringify(divisionAnswers)%>;
-    console.log(answer)
-    //console.log(additionAnswers)
   </script>

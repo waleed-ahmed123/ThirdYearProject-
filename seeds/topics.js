@@ -1,3 +1,4 @@
+// Export the topics so they can be used to seed the database
 module.exports.topics = [
     {
         id: 1,

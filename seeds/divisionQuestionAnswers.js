@@ -1,3 +1,4 @@
+// Export the division questions so they can be used to seed the database
 module.exports.divisionQuestions = [
     {
         id: 1,
@@ -41,6 +42,7 @@ module.exports.divisionQuestions = [
     }
 ]
 
+// Export the division answers so they can be used to seed the database
 module.exports.divisionAnswers = [
     {
         id: 1,

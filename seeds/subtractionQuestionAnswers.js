@@ -1,3 +1,4 @@
+// Export the subtraction questions so they can be used to seed the database
 module.exports.subtractionQuestions = [
     {
         id: 1,
@@ -41,6 +42,7 @@ module.exports.subtractionQuestions = [
     },
 ]
 
+// Export the subtraction answers so they can be used to seed the database
 module.exports.subtractionAnswers = [
     {
         id: 1,

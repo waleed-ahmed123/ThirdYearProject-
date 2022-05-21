@@ -1,3 +1,5 @@
+// checks if the application is in development mode
+// If not require the contents of the .env file.
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
@@ -10,6 +12,9 @@ const { subtractionQuestions, subtractionAnswers } = require('./subtractionQuest
 const { multiplicationQuestions, multiplicationAnswers } = require('./multiplicationQuestionAnswers')
 const { divisionQuestions, divisionAnswers } = require('./divisionQuestionAnswers')
 const { topics } = require('./topics')
+
+// Connection to the database.
+// Use cloud server if not in production otherwise use local server
 const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/maths-quiz';
 
 mongoose.connect(dbURL, {
@@ -18,6 +23,7 @@ mongoose.connect(dbURL, {
     useUnifiedTopology: true
 });
 
+// Set the connection to database
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -25,6 +31,8 @@ db.once("open", () => {
 });
 
 const seedDB = async () => {
+    // Deleting the contents of the databse first 
+    // so you dont have unwanted data in the database after you have seeded it
     await AdditionQuestions.deleteMany({});
     await SubtractionQuestions.deleteMany({});
     await MultiplicationQuestions.deleteMany({});
@@ -36,6 +44,8 @@ const seedDB = async () => {
     await MultiplicationAnswers.deleteMany({});
     await DivisionAnswers.deleteMany({});
 
+    // Iterate over the addition questions from the file
+    // Add each question into the databse and then save the database
     for (let i = 0; i < additionQuestions.length; i++) {
         const q = new AdditionQuestions({
             id: `${additionQuestions[i].id}`,
@@ -44,6 +54,8 @@ const seedDB = async () => {
         await q.save();
     }
 
+    // Iterate over the subtraction questions from the file
+    // Add each question into the databse and then save the database
     for (let i = 0; i < subtractionQuestions.length; i++) {
         const q = new SubtractionQuestions({
             id: `${subtractionQuestions[i].id}`,
@@ -52,6 +64,8 @@ const seedDB = async () => {
         await q.save();
     }
 
+    // Iterate over the multiplication questions from the file
+    // Add each question into the databse and then save the database
     for (let i = 0; i < multiplicationQuestions.length; i++) {
         const q = new MultiplicationQuestions({
             id: `${multiplicationQuestions[i].id}`,
@@ -60,6 +74,8 @@ const seedDB = async () => {
         await q.save();
     }
 
+    // Iterate over the division questions from the file
+    // Add each question into the databse and then save the database
     for (let i = 0; i < divisionQuestions.length; i++) {
         const q = new DivisionQuestions({
             id: `${divisionQuestions[i].id}`,
@@ -68,6 +84,8 @@ const seedDB = async () => {
         await q.save();
     }
 
+    // Iterate over the topics from the file
+    // Add each topic into the databse and then save the database
     for (let i = 0; i < topics.length; i++) {
         const q = new Topics({
             id: `${topics[i].id}`,
@@ -89,6 +107,7 @@ const seedDB = async () => {
             }
         } */
 
+    // Using the insertMany() function to add the addition answers into the datebase
     const a = AdditionAnswers.insertMany([
         {
             id: 1,
@@ -316,8 +335,7 @@ const seedDB = async () => {
         })
 
 
-
-
+    // Using the insertMany() function to add the subtraction answers into the datebase
     const s = SubtractionAnswers.insertMany([
         {
             id: 1,
@@ -545,7 +563,7 @@ const seedDB = async () => {
         })
 
 
-
+    // Using the insertMany() function to add the multiplication answers into the datebase
     const m = MultiplicationAnswers.insertMany([
         {
             id: 1,
@@ -772,7 +790,7 @@ const seedDB = async () => {
             console.log(data)
         })
 
-
+    // Using the insertMany() function to add the division answers into the datebase
     const d = DivisionAnswers.insertMany([
         {
             id: 1,
@@ -1000,4 +1018,5 @@ const seedDB = async () => {
         })
 }
 
+// When this file is executed, this function will be calledn and databse will be populated with the data
 seedDB();

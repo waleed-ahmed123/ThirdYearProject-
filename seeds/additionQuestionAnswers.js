@@ -1,3 +1,4 @@
+// Export the addition questions so they can be used to seed the database
 module.exports.additionQuestions = [
     {
         id: 1,
@@ -41,6 +42,7 @@ module.exports.additionQuestions = [
     }
 ]
 
+// Export the addition answers so they can be used to seed the database
 module.exports.additionAnswers = [
     {
         id: 1,

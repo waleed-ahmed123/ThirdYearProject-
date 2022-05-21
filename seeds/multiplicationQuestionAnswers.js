@@ -1,3 +1,4 @@
+// Export the multiplication questions so they can be used to seed the database
 module.exports.multiplicationQuestions = [
     {
         id: 1,
@@ -41,6 +42,7 @@ module.exports.multiplicationQuestions = [
     }
 ]
 
+// Export the multiplication answers so they can be used to seed the database
 module.exports.multiplicationAnswers = [
     {
         id: 1,
