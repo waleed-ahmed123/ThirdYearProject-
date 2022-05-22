@@ -1,7 +1,5 @@
 body {
     background-color: #2b6777;
-    /*     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://vui.unsplash.com/resize?height=256&quality=60&type=auto&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1635070041078-e363dbe005cb%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26h%3D256&sign=NbtzjAgvluVLT1x-_cX2sOYDiUpFqPgiVpMagvkw8PQ"); */
     background-size: cover;
     background-position: center;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);

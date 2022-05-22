@@ -1,4 +1,4 @@
-// checks if the application is development mode
+// checks if the application is in development mode
 // If not require the contents of the .env file.
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
@@ -25,7 +25,7 @@ mongoose.connect(dbURL, {
     useUnifiedTopology: true
 });
 
-// Set connection to database
+// Set the connection to database
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
